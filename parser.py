@@ -88,9 +88,6 @@ def add_cfg_key_value(file_path, key, value):
 
 def delete_cfg_key_value(file_path, key):
     is_delete = False
-    '''
-    TODO: delete operation
-    '''
     file_object = open(file_path, 'r+')
     try:
         lines = file_object.readlines()
@@ -98,6 +95,7 @@ def delete_cfg_key_value(file_path, key):
         for i in range(len(lines)):
             kv = lines[i].split('=')
             if kv[0] == key:
+                is_delete = True
                 continue
             file_object.write(lines[i])
     finally:
