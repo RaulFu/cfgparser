@@ -1,18 +1,17 @@
 # encoding: utf-8
 '''
-fileutil -- shortdesc
+parser -- shortdesc
 
-fileutil is a description
+this is a util used to read and write configure file 
+which is stored by the key-value formate(key=value)
 
-It defines classes_and_methods
+@author:     raul
 
-@author:     user_name
-
-@copyright:  2014 organization_name. All rights reserved.
+@copyright:  2014 . All rights reserved.
 
 @license:    license
 
-@contact:    user_email
+@contact:    sdau_fuzhaokun@163.com
 @deffield    updated: Updated
 '''
 
