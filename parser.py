@@ -1,4 +1,3 @@
-#!/usr/local/bin/python2.7
 # encoding: utf-8
 '''
 fileutil -- shortdesc
@@ -16,8 +15,7 @@ It defines classes_and_methods
 @contact:    user_email
 @deffield    updated: Updated
 '''
-import os
-import commands
+
 
 def get_cfg_content(file_path):
     content = None
@@ -91,7 +89,21 @@ def add_cfg_key_value(file_path, key, value):
 
 def delete_cfg_key_value(file_path, key):
     is_delete = False
-
+    '''
+    TODO: delete operation
+    '''
+    file_object = open(file_path, 'r+')
+    try:
+        lines = file_object.readlines()
+        file_object.seek(0)
+        for i in range(len(lines)):
+            kv = lines[i].split('=')
+            if kv[0] == key:
+                continue
+            file_object.write(lines[i])
+    finally:
+        file_object.close()
+    return is_delete
   
 
 if __name__=="__main__":
@@ -99,7 +111,9 @@ if __name__=="__main__":
     add_cfg_key_value('cfg', 't2', '2')
     add_cfg_key_value('cfg', 't3', '3')
     add_cfg_key_value('cfg', 't4', '4')
-    
+    print get_cfg_content('cfg')
+    delete_cfg_key_value('cfg', 't1')
+    print get_cfg_content('cfg')
 #       print get_cfg_key_value('cfg', 't1') == 'b'
 #       print is_cfg_key_exist('cfg', 't1')
 #       print is_cfg_key_exist('cfg', 't')
